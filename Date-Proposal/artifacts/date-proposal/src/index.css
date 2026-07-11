@@ -1,0 +1,68 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --font-sans: 'Outfit', sans-serif;
+  --font-serif: 'Fraunces', serif;
+}
+
+:root {
+  --background: 40 40% 98%; 
+  --foreground: 8 18% 19%; 
+  
+  --primary: 10 65% 55%; 
+  --primary-foreground: 40 40% 98%; 
+  
+  --secondary: 9 65% 92%; 
+  --secondary-foreground: 8 18% 19%; 
+  
+  --muted: 30 20% 90%; 
+  --muted-foreground: 8 10% 40%;
+  
+  --border: 30 20% 90%;
+  --input: 30 20% 90%;
+  --ring: 10 65% 55%;
+}
+
+.dark {
+  --background: 40 40% 98%; 
+  --foreground: 8 18% 19%; 
+  
+  --primary: 10 65% 55%; 
+  --primary-foreground: 40 40% 98%; 
+  
+  --secondary: 9 65% 92%; 
+  --secondary-foreground: 8 18% 19%; 
+  
+  --muted: 30 20% 90%; 
+  --muted-foreground: 8 10% 40%;
+  
+  --border: 30 20% 90%;
+  --input: 30 20% 90%;
+  --ring: 10 65% 55%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}

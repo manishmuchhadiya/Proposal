@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Will You Go On A Date With Me?"
+version = "1.0.0"
+id = "artifacts/date-proposal"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19108
+
+[services.development]
+run = "pnpm --filter @workspace/date-proposal run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/date-proposal", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/date-proposal/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19108"
+BASE_PATH = "/"
